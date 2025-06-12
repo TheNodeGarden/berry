@@ -1739,6 +1739,7 @@ end
 /********************************************************************
 ** Solidified function: getbits
 ********************************************************************/
+#if 0 // NG: broken
 be_local_closure(getbits,   /* name */
   be_nested_proto(
     9,                          /* nstack */
@@ -1794,11 +1795,13 @@ be_local_closure(getbits,   /* name */
     })
   )
 );
+#endif
 /*******************************************************************/
 
 /********************************************************************
 ** Solidified function: setbits
 ********************************************************************/
+#if 0   // NG: broken
 be_local_closure(setbits,   /* name */
   be_nested_proto(
     10,                          /* nstack */
@@ -1859,6 +1862,7 @@ be_local_closure(setbits,   /* name */
     })
   )
 );
+#endif
 /*******************************************************************/
 
 #if !BE_USE_PRECOMPILED_OBJECT
@@ -1907,8 +1911,8 @@ void be_load_byteslib(bvm *vm)
         { "!=", m_nequal },
 
         { NULL, (bntvfunc) BE_CLOSURE }, /* mark section for berry closures */
-        { "getbits", (bntvfunc) &getbits_closure },
-        { "setbits", (bntvfunc) &setbits_closure },
+        //{ "getbits", (bntvfunc) &getbits_closure },
+        //{ "setbits", (bntvfunc) &setbits_closure },
 
         { NULL, NULL }
     };
